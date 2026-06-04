@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional Portfolio - Showcasing projects, skills, and experience.">
+    <title>Professional Portfolio</title>
+    
+    <!-- Dynamic SVG Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%220%25%22><stop offset=%220%25%22 stop-color=%22%236366f1%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22url(%23grad)%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SweetAlert2 for beautiful popups -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- MD5 for Gravatar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
+</head>
+
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">JLC.</a>
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home" class="hero section">
+            <div class="hero-content">
+                <p class="greeting">Hello, I'm</p>
+                <h1 class="name">John Lodie Crisostomo</h1>
+                <h2 class="title">Full Stack Developer & UI/UX Enthusiast</h2>
+                <p class="bio">I build exceptional and accessible digital experiences for the web. Turning complex
+                    problems into beautiful, intuitive designs.</p>
+                <div class="cta-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
+                    <a href="resume.html" class="btn btn-secondary">View CV</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <img src="images/meeee.jpg" alt="John Lodie Crisostomo" class="profile-pic">
+            </div>
+        </section>
+
+        <section id="about" class="about section">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Hello! My name is Lodie and I enjoy creating things that live on the internet. My interest in web
+                        development started back in 2026 when I decided to try editing custom Tumblr themes — turns out
+                        hacking together HTML & CSS taught me a lot about HTML & CSS!</p>
+                    <p>Fast-forward to today, and I've had the privilege of working at an advertising agency, a
+                        start-up, a huge corporation, and a student-led design studio. My main focus these days is
+                        building accessible, inclusive products and digital experiences for a variety of clients.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h3>1</h3>
+                        <p>Year Experience</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>3+</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>0</h3>
+                        <p>Happy Clients</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="projects section">
+            <h2 class="section-title">Selected Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/p1.png');"></div>
+                    <div class="project-info">
+                        <h3>Barangay Inquiry System</h3>
+                        <p>A comprehensive system for handling barangay inquiries, featuring SMS, Email, and Payment API
+                            integrations.</p>
+                        <div class="project-tech">
+                            <span>PHP</span><span>JS</span><span>HTML/CSS</span><span>APIs</span>
+                        </div>
+                        <span class="project-link" style="color: var(--accent-2);"><i
+                                class="fas fa-spinner fa-spin"></i> In Progress</span>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/p2.png');"></div>
+                    <div class="project-info">
+                        <h3>Tabulation System</h3>
+                        <p>A real-time tabulation system built for events and pageants, featuring a responsive judge
+                            panel and live results.</p>
+                        <div class="project-tech">
+                            <span>PHP</span><span>JS</span><span>HTML</span><span>CSS</span>
+                        </div>
+                        <span class="project-link"><i class="fas fa-server"></i> Live on Localhost</span>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image" style="background-image: url('images/p3.png');"></div>
+                    <div class="project-info">
+                        <h3>E-QuizBee Platform</h3>
+                        <p>An interactive online and personal quiz platform allowing users to create rooms and
+                            participate in real-time quizzes.</p>
+                        <div class="project-tech">
+                            <span>PHP</span><span>JS</span><span>HTML</span><span>CSS</span>
+                        </div>
+                        <a href="https://e-quizbee.infinityfreeapp.com/index.php" target="_blank"
+                            rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Live
+                            Demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="skills section">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <ul class="skill-list">
+                        <li>HTML</li>
+                        <li>JavaScript</li>
+                        <li>CSS</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <ul class="skill-list">
+                        <li>PHP</li>
+                        <li>MySQL</li>
+                        <li>MongoDB</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>AI Tools</h3>
+                    <ul class="skill-list">
+                        <li>GitHub Copilot</li>
+                        <li>Claude</li>
+                        <li>Google Gemini</li>
+                        <li>OpenAI</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="contact section">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-panel">
+                <div class="contact-info">
+                    <p class="contact-desc">If you have a project in mind, a question, or just want to connect, feel
+                        free to
+                        reach out to me directly. I'm always open to discussing new opportunities!</p>
+
+                    <div class="social-links">
+                        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="CodePen"><i class="fab fa-codepen"></i></a>
+                    </div>
+                </div>
+
+                <div class="contact-form-container">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="contact-form">
+                        <!-- Note: Replace YOUR_ACCESS_KEY_HERE with your Web3Forms Access Key -->
+                        <input type="hidden" name="access_key" value="5091a732-d07f-439f-a407-d91bb5877229">
+
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required
+                                class="form-control"></textarea>
+                        </div>
+
+                        <!-- Web3Forms Free Spam Protection (Honeypot) -->
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="reviews" class="contact section">
+            <h2 class="section-title">Comments & Suggestions</h2>
+
+            <div class="contact-panel">
+
+                <!-- Left Side: Recent Feedback -->
+                <div class="contact-info" style="text-align: left;">
+                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-main);">Recent Feedback</h3>
+                    <div id="commentsList" class="reviews-list">
+                        <!-- JS will inject comments -->
+                    </div>
+                </div>
+
+                <!-- Right Side: Leave a Review Form -->
+                <div class="contact-form-container">
+                    <form id="commentForm" class="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="commentName" placeholder="Your Name" required class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="commentEmail" placeholder="Your Email" required
+                                class="form-control">
+                        </div>
+
+                        <div class="form-group rating-group" style="margin-top: 0.5rem; margin-bottom: 1rem;">
+                            <label style="margin-right: 0.5rem; color: var(--text-muted);">Rating:</label>
+                            <div class="star-rating" id="starRating">
+                                <i class="fas fa-star" data-rating="1"></i>
+                                <i class="fas fa-star" data-rating="2"></i>
+                                <i class="fas fa-star" data-rating="3"></i>
+                                <i class="fas fa-star" data-rating="4"></i>
+                                <i class="fas fa-star" data-rating="5"></i>
+                            </div>
+                            <input type="hidden" id="commentRating" value="5">
+                        </div>
+
+                        <div class="form-group">
+                            <textarea id="commentText" placeholder="Write your comment or suggestion here..." rows="5"
+                                required class="form-control"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Comment</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 John Lodie Crisostomo.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Security: Disable Right-Click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // Security: Disable Keyboard Shortcuts (Ctrl+S, Ctrl+P, Ctrl+U, Ctrl+C)
+        document.addEventListener('keydown', function (e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'c') {
+                    e.preventDefault();
+                    console.log("Shortcut disabled for security.");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
