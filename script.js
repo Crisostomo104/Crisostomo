@@ -15,17 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.getElementById('nav-links');
     const navLinksItems = document.querySelectorAll('.nav-links a');
 
-    hamburger.addEventListener('click', () => {
+    hamburger.addEventListener('click', (e) => {
         navLinks.classList.toggle('active');
-        
-        // Toggle icon between bars and times
-        const icon = hamburger.querySelector('i');
-        if (navLinks.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        e.stopPropagation(); // Prevent the document click event from firing immediately
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (navLinks.classList.contains('active') && !navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+            navLinks.classList.remove('active');
         }
     });
 
@@ -33,9 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
     navLinksItems.forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('active');
-            const icon = hamburger.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
         });
     });
 
