@@ -1,337 +1,202 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional Portfolio - Showcasing projects, skills, and experience.">
-    <title>Professional Portfolio</title>
-
-    <!-- Dynamic SVG Favicon -->
-    <link rel="icon"
-        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%220%25%22><stop offset=%220%25%22 stop-color=%22%236366f1%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22url(%23grad)%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
-
+    <title>John Lodie Crisostomo | Web Developer for LGU, School & Small Business Systems</title>
+    <meta name="description" content="Freelance web developer building custom PHP/MySQL systems with SMS, email and payment integrations for barangays, schools and small businesses in the Philippines.">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="John Lodie Crisostomo | Web Developer">
+    <meta property="og:description" content="Custom web systems for barangays, schools and small businesses. SMS, email and payment integrations.">
+    <meta property="og:image" content="images/p1.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="theme-color" content="#0a0a0a">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"Person","name":"John Lodie Crisostomo","jobTitle":"Web Developer","email":"johnlodiecrisostomo104@gmail.com","sameAs":["https://github.com/Crisostomo104"]}
+    </script>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22%236366f1%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="upgrade.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- SweetAlert2 for beautiful popups -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-    <!-- MD5 for Gravatar -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/blueimp-md5/2.19.0/js/md5.min.js"></script>
 </head>
-
 <body>
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">JLC.</a>
-            <ul class="nav-links" id="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+<a href="#main" class="skip">Skip to content</a>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <a href="#home" class="logo">JLC.</a>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#work">Work</a></li>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact" class="nav-cta">Hire Me</a></li>
+        </ul>
+        <div class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></div>
+    </div>
+</nav>
+
+<main id="main">
+    <section id="home" class="hero section">
+        <div class="hero-content">
+            <p class="badge"><span class="dot"></span> Open for freelance projects</p>
+            <h1 class="name">Web systems that make your daily operations faster.</h1>
+            <h2 class="title">Custom PHP &amp; MySQL development for barangays, schools and small businesses.</h2>
+            <p class="bio">I'm John Lodie Crisostomo. I design and build inquiry portals, management systems and event tools, with SMS, email and online payment integrations built in.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">Start a Project</a>
+                <a href="#work" class="btn btn-secondary">View Case Studies</a>
+                <a href="resume.html" class="btn btn-secondary">Resume</a>
+            </div>
+            <ul class="trust">
+                <li><strong>3</strong> live systems</li>
+                <li><strong>SMS · Email · Payments</strong> integrated</li>
+                <li><strong>Role-based</strong> access built in</li>
             </ul>
-            <div class="hamburger" id="hamburger">
-                <i class="fas fa-bars"></i>
+        </div>
+        <div class="hero-visual">
+            <img src="images/meeee.jpg" alt="John Lodie Crisostomo" class="profile-pic" width="400" height="400">
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2 class="section-title">What I Can Build For You</h2>
+        <div class="grid4">
+            <article class="card"><i class="fas fa-laptop-code"></i><h3>Custom Web Systems</h3><p>Record-keeping, request tracking, scheduling and approvals, built around how your office actually works.</p></article>
+            <article class="card"><i class="fas fa-plug"></i><h3>API Integrations</h3><p>SMS notifications, automated emails (PHPMailer) and online payments (PayMongo) connected to your system.</p></article>
+            <article class="card"><i class="fas fa-globe"></i><h3>Business Websites</h3><p>Fast, mobile-friendly websites with contact forms, so customers can find and reach you.</p></article>
+            <article class="card"><i class="fas fa-screwdriver-wrench"></i><h3>Support &amp; Troubleshooting</h3><p>Bug fixes, upgrades, data cleanup, plus basic PC and network troubleshooting.</p></article>
+        </div>
+    </section>
+
+    <section id="work" class="section">
+        <h2 class="section-title">Case Studies</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <div class="project-image" role="img" aria-label="Barangay Inquiry System screenshot" style="background-image:url('images/p1.png')"></div>
+                <div class="project-info">
+                    <h3>Barangay Inquiry System</h3>
+                    <p class="cs"><b>Problem:</b> Residents had to visit the barangay hall for simple inquiries and requests.</p>
+                    <p class="cs"><b>Solution:</b> An online portal with SMS and email notifications and online payment, with employee and admin dashboards.</p>
+                    <div class="project-tech"><span>PHP</span><span>MongoDB</span><span>SMS</span><span>PHPMailer</span><span>PayMongo</span></div>
+                    <a href="https://bis.xo.je/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Live site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" role="img" aria-label="SAHMS screenshot" style="background-image:url('images/p6.png')"></div>
+                <div class="project-info">
+                    <h3>SAHMS: Student Assistant Hours Management</h3>
+                    <p class="cs"><b>Problem:</b> Duty hours were tracked manually, which made verification and overtime computation slow.</p>
+                    <p class="cs"><b>Solution:</b> Role-based DTR system with photo-verified submissions, Head SA approvals and automated OT cashouts.</p>
+                    <div class="project-tech"><span>PHP</span><span>MySQL</span><span>Bootstrap</span><span>JS</span></div>
+                    <a href="https://asiatechsahms.xo.je" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Live site</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" role="img" aria-label="Tabulation System screenshot" style="background-image:url('images/p2.png')"></div>
+                <div class="project-info">
+                    <h3>Event Tabulation System</h3>
+                    <p class="cs"><b>Problem:</b> Manual score counting delays results at events and pageants.</p>
+                    <p class="cs"><b>Solution:</b> Responsive judge panel with live results, so scores are tallied as judges submit.</p>
+                    <div class="project-tech"><span>PHP</span><span>JS</span><span>HTML/CSS</span></div>
+                    <span class="project-link"><i class="fas fa-server"></i> Runs on localhost (demo on request)</span>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-image" role="img" aria-label="Client blog screenshot" style="background-image:url('images/p4.jpeg')"></div>
+                <div class="project-info">
+                    <h3>Client Blog Site</h3>
+                    <p class="cs"><b>Problem:</b> A client needed a simple way to publish and share posts online.</p>
+                    <p class="cs"><b>Solution:</b> Clean, responsive blog with a straightforward posting experience.</p>
+                    <div class="project-tech"><span>JS</span><span>HTML</span><span>CSS</span></div>
+                    <a href="https://blog-jazmine.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Live site</a>
+                </div>
             </div>
         </div>
-    </nav>
+    </section>
 
-    <main>
-        <section id="home" class="hero section">
-            <div class="hero-content">
-                <p class="greeting">Hello, I'm</p>
-                <h1 class="name">John Lodie Crisostomo</h1>
-                <h2 class="title">Full Stack Developer & UI/UX Enthusiast</h2>
-                <p class="bio">I build exceptional and accessible digital experiences for the web. Turning complex
-                    problems into beautiful, intuitive designs.</p>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                    <a href="resume.html" class="btn btn-secondary">View CV</a>
+    <section id="process" class="section">
+        <h2 class="section-title">How We Work Together</h2>
+        <ol class="steps">
+            <li><span>1</span><h3>Discover</h3><p>We talk through your goals, users and current process.</p></li>
+            <li><span>2</span><h3>Plan</h3><p>You get a clear scope, feature list and timeline before any code.</p></li>
+            <li><span>3</span><h3>Build</h3><p>I develop in stages and show you progress along the way.</p></li>
+            <li><span>4</span><h3>Launch &amp; Support</h3><p>Deployment, testing with your team, and follow-up fixes.</p></li>
+        </ol>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>I'm an Information Technology student at Asiatech College and a Student Assistant in the IT Department, where I handle technical support and daily lab operations.</p>
+                <p>Outside class, I build real systems end to end, from database design to the interface, and use AI-assisted development to ship faster without skipping testing.</p>
+                <div class="chips">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>MySQL</span><span>MongoDB</span><span>REST APIs</span><span>Bootstrap</span><span>PHPMailer</span><span>PayMongo</span><span>Troubleshooting</span>
                 </div>
             </div>
-            <div class="hero-visual">
-                <img src="images/meeee.jpg" alt="John Lodie Crisostomo" class="profile-pic">
+            <div class="about-stats">
+                <div class="stat-card"><h3>1+</h3><p>Year building</p></div>
+                <div class="stat-card"><h3>3</h3><p>Live systems</p></div>
+                <div class="stat-card"><h3>3</h3><p>API integrations</p></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="about" class="about section">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>Hello! My name is Lodie and I enjoy creating things that live on the internet. My interest in web
-                        development started back in 2026 when I decided to try editing custom Tumblr themes — turns out
-                        hacking together HTML & CSS taught me a lot about HTML & CSS!</p>
-                    <p>Fast-forward to today, and I've had the privilege of working at an advertising agency, a
-                        start-up, a huge corporation, and a student-led design studio. My main focus these days is
-                        building accessible, inclusive products and digital experiences for a variety of clients.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h3>1</h3>
-                        <p>Year Experience</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>3+</h3>
-                        <p>Projects Completed</p>
-                    </div>
-                    <div class="stat-card">
-                        <h3>0</h3>
-                        <p>Happy Clients</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <section id="faq" class="section">
+        <h2 class="section-title">FAQ</h2>
+        <div class="faq">
+            <details><summary>How do we get started?</summary><p>Send me a message describing what you need. I'll reply with questions and a proposed scope.</p></details>
+            <details><summary>What should I prepare?</summary><p>Your current process (even paper forms), who will use the system, and any deadline.</p></details>
+            <details><summary>Can you help with hosting and updates?</summary><p>Yes. I can deploy the system and handle fixes and improvements after launch.</p></details>
+            <details><summary>Can I see a demo first?</summary><p>The live case studies above are open. For the others, I can arrange a walkthrough.</p></details>
+        </div>
+    </section>
 
-        <section id="projects" class="projects section">
-            <h2 class="section-title">Selected Projects</h2>
-            <div class="project-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/p1.png');"></div>
-                    <div class="project-info">
-                        <h3>Barangay Inquiry System</h3>
-                        <p>A comprehensive system for handling barangay inquiries, featuring SMS, Email, and Payment API
-                            integrations.</p>
-                        <div class="project-tech">
-                            <span>PHP</span><span>JS</span><span>HTML/CSS</span><span>APIs</span>
-                        </div>
-                        <a href="https://bis.xo.je/" target="_blank"
-                            rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i>Live</a>
-                    </div>
-                </div>
-                <!-- Project 2 -->
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/p2.png');"></div>
-                    <div class="project-info">
-                        <h3>Tabulation System</h3>
-                        <p>A real-time tabulation system built for events and pageants, featuring a responsive judge
-                            panel and live results.</p>
-                        <div class="project-tech">
-                            <span>PHP</span><span>JS</span><span>HTML</span><span>CSS</span>
-                        </div>
-                        <span class="project-link"><i class="fas fa-server"></i> Live on Localhost</span>
-                    </div>
-                </div>
-                <!-- Project 3 -->
-                <!-- <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/p3.png');"></div>
-                    <div class="project-info">
-                        <h3>E-QuizBee Platform</h3>
-                        <p>An interactive online and personal quiz platform allowing users to create rooms and
-                            participate in real-time quizzes.</p>
-                        <div class="project-tech">
-                            <span>PHP</span><span>JS</span><span>HTML</span><span>CSS</span>
-                        </div>
-                        <a href="https://e-quizbee.infinityfreeapp.com/e-quizbee/index.php" target="_blank"
-                            rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i> Live
-                            Demo</a>
-                    </div>
-                </div> -->
-                <!-- Project 4 -->
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/p4.jpeg');"></div>
-                    <div class="project-info">
-                        <h3>Client Blog Site</h3>
-                        <p>A dynamic blogging platform designed for clients to publish, manage, and share posts with
-                            a clean UI and responsive layout.</p>
-                        <div class="project-tech">
-                            <span>JS</span><span>HTML</span><span>CSS</span>
-                        </div>
-                        <a href="https://blog-jazmine.vercel.app/" target="_blank" rel="noopener noreferrer"
-                            class="project-link"><i class="fas fa-external-link-alt"></i> Live Demo</a>
-                    </div>
-                </div>
-                <!-- Project 5 -->
-                <!-- <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/p5.jpg');"></div>
-                    <div class="project-info">
-                        <h3>All-In-One School Management System</h3>
-                        <p>A centralized platform for managing student records, class schedules, grading, and
-                            communication tools, designed to streamline school operations.</p>
-                        <div class="project-tech">
-                            <span>PHP</span><span>JS</span><span>HTML</span><span>CSS</span><span>MySQL</span>
-                        </div>
-                        <span class="project-link" style="color: var(--accent-2);"><i
-                                class="fas fa-spinner fa-spin"></i> In Progress</span>
-                    </div>
-                </div> -->
-                <!-- Project 6 -->
-                <div class="project-card">
-                    <div class="project-image" style="background-image: url('images/p6.png');"></div>
-                    <div class="project-info">
-                        <h3>SAHMS — Student Assistant Hours Management System</h3>
-                        <p>A secure, role-based system for tracking student assistant duty hours — featuring photo-verified DTR submissions, Head SA approvals, and automated OT cashouts.</p>
-                        <div class="project-tech">
-                                                        <span>PHP</span><span>JS</span><span>HTML</span><span>CSS</span><span>MySQL</span><span>Bootstrap</span>
-                        </div>
-                        <a href="https://asiatechsahms.xo.je" target="_blank"
-                            rel="noopener noreferrer" class="project-link"><i class="fas fa-external-link-alt"></i>Live</a>
-                    </div>
+    <section id="contact" class="section">
+        <h2 class="section-title">Let's Talk About Your Project</h2>
+        <div class="contact-panel">
+            <div class="contact-info">
+                <p class="contact-desc">Tell me what you need and I'll get back to you with questions and next steps.</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:johnlodiecrisostomo104@gmail.com">johnlodiecrisostomo104@gmail.com</a></p>
+                <p><i class="fas fa-location-dot"></i> Santa Rosa, Laguna · Working remotely</p>
+                <div class="social-links">
+                    <a href="https://github.com/Crisostomo104" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.facebook.com/johnlodie.23" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="resume.html" aria-label="Resume"><i class="fas fa-file-lines"></i></a>
                 </div>
             </div>
-        </section>
-
-        <section id="skills" class="skills section">
-            <h2 class="section-title">My Skills</h2>
-            <div class="skills-container">
-                <div class="skill-category">
-                    <h3>Frontend</h3>
-                    <ul class="skill-list">
-                        <li>HTML</li>
-                        <li>JavaScript</li>
-                        <li>CSS</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <ul class="skill-list">
-                        <li>PHP</li>
-                        <li>MySQL</li>
-                        <li>MongoDB</li>
-                        <li>RESTful APIs</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>AI Tools</h3>
-                    <ul class="skill-list">
-                        <li>GitHub Copilot</li>
-                        <li>Claude</li>
-                        <li>Google Gemini</li>
-                        <li>OpenAI</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h3>Hands-on Experience</h3>
-                    <ul class="skill-list">
-                        <li>Basic PC Troubleshooting</li>
-                        <li>Computer Configuration</li>
-                        <li>Basic Network Troubleshooting</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="contact section">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-panel">
-                <div class="contact-info">
-                    <p class="contact-desc">If you have a project in mind, a question, or just want to connect, feel
-                        free to
-                        reach out to me directly. I'm always open to discussing new opportunities!</p>
-
-                    <div class="social-links">
-                        <a href="https://github.com/Crisostomo104" target="_blank" aria-label="GitHub"><i
-                                class="fab fa-github" title="GitHub"></i></a>
-                        <a href="https://www.facebook.com/johnlodie.23" target="_blank" aria-label="Facebook"><i
-                                class="fab fa-facebook" title="Facebook"></i></a>
-                        <a href="https://profile.indeed.com/?hl=en_PH&co=PH&from=gnav-homepage" target="_blank"
-                            aria-label="Indeed"><i class="fas fa-briefcase" title="Indeed"></i></a>
-                        <a href="mailto:[EMAIL_ADDRESS]" aria-label="Email"><i class="fas fa-envelope"
-                                title="Email"></i></a>
+            <div class="contact-form-container">
+                <form id="contactForm" class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+                    <input type="hidden" name="access_key" value="5091a732-d07f-439f-a407-d91bb5877229">
+                    <input type="hidden" name="subject" value="New project inquiry from portfolio">
+                    <div class="form-group"><input type="text" name="name" placeholder="Your Name" required class="form-control"></div>
+                    <div class="form-group"><input type="email" name="email" placeholder="Your Email" required class="form-control"></div>
+                    <div class="form-group">
+                        <select name="project_type" class="form-control" required>
+                            <option value="" disabled selected>What do you need?</option>
+                            <option>Custom web system</option>
+                            <option>Business website</option>
+                            <option>SMS / Email / Payment integration</option>
+                            <option>Support or fixes</option>
+                            <option>Other</option>
+                        </select>
                     </div>
-                </div>
-
-                <div class="contact-form-container">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="contactForm" class="contact-form">
-                        <!-- Note: Replace YOUR_ACCESS_KEY_HERE with your Web3Forms Access Key -->
-                        <input type="hidden" name="access_key" value="5091a732-d07f-439f-a407-d91bb5877229">
-
-                        <div class="form-group">
-                            <input type="text" name="name" placeholder="Your Name" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" placeholder="Your Email" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <textarea name="message" placeholder="Your Message" rows="5" required
-                                class="form-control"></textarea>
-                        </div>
-
-                        <!-- Web3Forms Free Spam Protection (Honeypot) -->
-                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
-                    </form>
-                </div>
+                    <div class="form-group"><textarea name="message" placeholder="Tell me about your project" rows="5" required class="form-control"></textarea></div>
+                    <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Send Inquiry</button>
+                </form>
             </div>
-        </section>
+        </div>
+    </section>
+</main>
 
-        <section id="reviews" class="contact section">
-            <h2 class="section-title">Comments & Suggestions</h2>
-
-            <div class="contact-panel">
-
-                <!-- Left Side: Recent Feedback -->
-                <div class="contact-info" style="text-align: left;">
-                    <h3 style="margin-bottom: 1.5rem; font-size: 1.5rem; color: var(--text-main);">Recent Feedback</h3>
-                    <div id="commentsList" class="reviews-list">
-                        <!-- JS will inject comments -->
-                    </div>
-                </div>
-
-                <!-- Right Side: Leave a Review Form -->
-                <div class="contact-form-container">
-                    <form id="commentForm" class="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="commentName" placeholder="Your Name" required class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="commentEmail" placeholder="Your Email" required
-                                class="form-control">
-                        </div>
-
-                        <div class="form-group rating-group" style="margin-top: 0.5rem; margin-bottom: 1rem;">
-                            <label style="margin-right: 0.5rem; color: var(--text-muted);">Rating:</label>
-                            <div class="star-rating" id="starRating">
-                                <i class="fas fa-star" data-rating="1"></i>
-                                <i class="fas fa-star" data-rating="2"></i>
-                                <i class="fas fa-star" data-rating="3"></i>
-                                <i class="fas fa-star" data-rating="4"></i>
-                                <i class="fas fa-star" data-rating="5"></i>
-                            </div>
-                            <input type="hidden" id="commentRating" value="5">
-                        </div>
-
-                        <div class="form-group">
-                            <textarea id="commentText" placeholder="Write your comment or suggestion here..." rows="5"
-                                required class="form-control"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Submit Comment</button>
-                    </form>
-                </div>
-
-            </div>
-        </section>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 John Lodie Crisostomo.</p>
-    </footer>
-
-    <script src="script.js"></script>
-    <script>
-        // Security: Disable Right-Click
-        document.addEventListener('contextmenu', event => event.preventDefault());
-
-        // Security: Disable Keyboard Shortcuts (Ctrl+S, Ctrl+P, Ctrl+U, Ctrl+C)
-        document.addEventListener('keydown', function (e) {
-            if (e.ctrlKey || e.metaKey) {
-                if (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'c') {
-                    e.preventDefault();
-                    console.log("Shortcut disabled for security.");
-                }
-            }
-        });
-    </script>
+<footer><p>&copy; 2026 John Lodie Crisostomo. Built with HTML, CSS and JavaScript.</p></footer>
+<script src="script.js"></script>
 </body>
-
 </html>
