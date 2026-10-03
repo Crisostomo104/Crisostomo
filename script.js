@@ -50,11 +50,84 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => el.classList.add('in'));
     }
 
+
+    /* ---------- Clean URL: smooth-scroll to sections without adding #hash ---------- */
+    const web = location.protocol.startsWith('http');
+    const cleanPath = () => location.pathname.replace(/index\.html$/, '') + location.search;
+    const stripUrl = () => { if (web) { try { history.replaceState(null, '', cleanPath()); } catch (_) {} } };
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    document.addEventListener('click', e => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a || e.defaultPrevented || e.metaKey || e.ctrlKey || e.shiftKey) return;
+        const id = a.getAttribute('href').slice(1);
+        const target = id ? document.getElementById(id) : document.body;
+        if (!target) return;
+        e.preventDefault();
+        target.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+        if (id && id !== 'main') target.setAttribute('tabindex', '-1');
+        stripUrl();
+    });
+
+    // If someone opens a link that already has a #hash or /index.html, scroll there, then tidy the URL
+    if (location.hash) {
+        const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+        if (t) setTimeout(() => t.scrollIntoView(), 0);
+    }
+    stripUrl();
+
+
+    /* ---------- Theme toggle (light / dark) ---------- */
+    const root = document.documentElement;
+    const themeBtn = document.getElementById('themeToggle');
+    const themeMeta = document.querySelector('meta[name="theme-color"]');
+    const isDark = () => root.getAttribute('data-theme') === 'dark';
+    const syncTheme = () => {
+        const dark = isDark();
+        if (themeBtn) {
+            themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
+            themeBtn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
+        }
+        if (themeMeta) themeMeta.setAttribute('content', dark ? '#0a0f19' : '#ffffff');
+    };
+    syncTheme();
+    if (themeBtn) {
+        themeBtn.addEventListener('click', () => {
+            root.setAttribute('data-theme', isDark() ? 'light' : 'dark');
+            try { localStorage.setItem('theme', root.getAttribute('data-theme')); } catch (_) {}
+            syncTheme();
+        });
+    }
+    // Follow the device setting live, but only until the visitor picks a theme themselves
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        let saved = null;
+        try { saved = localStorage.getItem('theme'); } catch (_) {}
+        if (saved !== 'light' && saved !== 'dark') {
+            root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
+            syncTheme();
+        }
+    });
+
+    /* ---------- FAQ: only one answer open at a time ---------- */
+    const faqItems = [...document.querySelectorAll('.faq details')];
+    faqItems.forEach(item => {
+        item.addEventListener('toggle', () => {
+            if (!item.open) return;
+            faqItems.forEach(other => { if (other !== item) other.open = false; });
+        });
+    });
+
     /* ---------- Contact form (Web3Forms) ---------- */
     const form = document.getElementById('contactForm');
     const toast = (icon, title, text) => {
         if (window.Swal) {
-            return Swal.fire({ icon, title, text, confirmButtonColor: '#1e4fd8' });
+            const dark = document.documentElement.getAttribute('data-theme') === 'dark';
+            return Swal.fire({
+                icon, title, text,
+                confirmButtonColor: dark ? '#2f62e6' : '#1e4fd8',
+                background: dark ? '#111827' : '#ffffff',
+                color: dark ? '#f1f5fb' : '#0b1220'
+            });
         }
         alert(title + '\n' + text); // fallback if the CDN script is blocked
     };
