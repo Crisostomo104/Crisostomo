@@ -1,32 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const root = document.documentElement;
-    const themeToggle = document.getElementById('themeToggle');
-    const themeLabel = themeToggle ? themeToggle.querySelector('.theme-text') : null;
-    const themeStorageKey = 'portfolio-theme';
-
-    const applyTheme = theme => {
-        root.setAttribute('data-theme', theme);
-        if (themeToggle) {
-            const isDark = theme === 'dark';
-            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
-            if (themeLabel) themeLabel.textContent = isDark ? 'Light' : 'Dark';
-        }
-    };
-
-    try {
-        const savedTheme = localStorage.getItem(themeStorageKey);
-        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        applyTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : preferredTheme);
-    } catch {
-        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-    }
-
-    themeToggle?.addEventListener('click', () => {
-        const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-        applyTheme(nextTheme);
-        try { localStorage.setItem(themeStorageKey, nextTheme); } catch {}
-    });
-
     const header = document.getElementById('siteHeader');
     const toggle = document.getElementById('navToggle');
     const nav = document.getElementById('primaryNav');
