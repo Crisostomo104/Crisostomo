@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = themeToggle ? themeToggle.querySelector('.theme-text') : null;
+    const themeStorageKey = 'portfolio-theme';
+
+    const applyTheme = theme => {
+        root.setAttribute('data-theme', theme);
+        if (themeToggle) {
+            const isDark = theme === 'dark';
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            if (themeLabel) themeLabel.textContent = isDark ? 'Light' : 'Dark';
+        }
+    };
+
+    try {
+        const savedTheme = localStorage.getItem(themeStorageKey);
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        applyTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : preferredTheme);
+    } catch {
+        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+
+    themeToggle?.addEventListener('click', () => {
+        const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme);
+        try { localStorage.setItem(themeStorageKey, nextTheme); } catch {}
+    });
+
     const header = document.getElementById('siteHeader');
     const toggle = document.getElementById('navToggle');
     const nav = document.getElementById('primaryNav');
@@ -50,6 +78,48 @@ document.addEventListener('DOMContentLoaded', () => {
         revealEls.forEach(el => el.classList.add('in'));
     }
 
+    /* ---------- FAQ accordion: one item open at a time ---------- */
+    const faqItems = document.querySelectorAll('.faq details');
+    const reducedFaqMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const closeFaqItem = item => {
+        if (!item.open || item.classList.contains('is-closing')) return;
+        if (reducedFaqMotion) {
+            item.open = false;
+            return;
+        }
+
+        const answer = item.querySelector('.faq-answer');
+        item.classList.add('is-closing');
+        let finished = false;
+        const finishClose = () => {
+            if (finished) return;
+            finished = true;
+            answer.removeEventListener('transitionend', onTransitionEnd);
+            if (item.classList.contains('is-closing')) {
+                item.open = false;
+                item.classList.remove('is-closing');
+            }
+        };
+        const onTransitionEnd = event => {
+            if (event.target === answer && event.propertyName === 'grid-template-rows') finishClose();
+        };
+        answer.addEventListener('transitionend', onTransitionEnd);
+        window.setTimeout(finishClose, 450);
+    };
+
+    faqItems.forEach(item => {
+        item.querySelector('summary').addEventListener('click', event => {
+            event.preventDefault();
+            if (item.open) {
+                if (item.classList.contains('is-closing')) item.classList.remove('is-closing');
+                else closeFaqItem(item);
+                return;
+            }
+
+            faqItems.forEach(other => { if (other !== item) closeFaqItem(other); });
+            item.open = true;
+        });
+    });
 
     /* ---------- Clean URL: smooth-scroll to sections without adding #hash ---------- */
     const web = location.protocol.startsWith('http');
