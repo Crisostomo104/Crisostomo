@@ -2,74 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resume - John Lodie Crisostomo</title>
-    
-    <!-- Dynamic SVG Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><defs><linearGradient id=%22grad%22 x1=%220%25%22 y1=%220%25%22 x2=%22100%25%22 y2=%220%25%22><stop offset=%220%25%22 stop-color=%22%236366f1%22/><stop offset=%22100%25%22 stop-color=%22%238b5cf6%22/></linearGradient></defs><rect width=%22100%22 height=%22100%22 rx=%2225%22 fill=%22url(%23grad)%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial, sans-serif%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Resume | John Lodie Crisostomo</title>
+    <meta name="theme-color" content="#ffffff">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%231e4fd8%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background: var(--bg-main);
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            font-family: var(--font-body);
-        }
-        
-        .resume-header {
-            padding: 1rem 5%;
-            background: rgba(10, 10, 10, 0.95);
-            border-bottom: 1px solid var(--border-color);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            backdrop-filter: blur(10px);
-            z-index: 10;
-        }
-
-        .resume-header h2 {
-            color: var(--text-main);
-            font-size: 1.2rem;
-            margin: 0;
-            font-family: var(--font-heading);
-            display: none;
-        }
-
-        @media (min-width: 768px) {
-            .resume-header h2 {
-                display: block;
-            }
-        }
-
-        .resume-content {
-            flex: 1;
-            width: 100%;
-            border: none;
-            background: #ffffff; /* PDFs usually have white backgrounds */
-        }
-    </style>
 </head>
-<body>
-    
-    <div class="resume-header">
-        <a href="index.html" class="btn btn-secondary">
-            <i class="fas fa-arrow-left" style="margin-right: 8px;"></i> Back to Portfolio
-        </a>
-        
-        <h2>Curriculum Vitae</h2>
-        
-        <a href="RESUME.pdf" download class="btn btn-primary">
-            <i class="fas fa-download" style="margin-right: 8px;"></i> Download PDF
-        </a>
-    </div>
+<body class="resume-page">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+            <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+            <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+        </defs>
+    </svg>
 
-    <!-- Embed the PDF full screen with toolbar disabled to prevent casual downloading/printing -->
-    <iframe src="RESUME.pdf" class="resume-content" title="Resume PDF"></iframe>
+    <header class="resume-bar">
+        <a href="index.html" class="btn btn-secondary btn-sm"><svg class="i" aria-hidden="true"><use href="#i-arrow-left"/></svg> Back to Portfolio</a>
+        <h1>Resume</h1>
+        <a href="RESUME.pdf" download class="btn btn-primary btn-sm"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg> Download PDF</a>
+    </header>
+
+    <iframe src="RESUME.pdf" class="resume-frame" title="Resume of John Lodie Crisostomo (PDF)"></iframe>
+
+    <p class="resume-fallback">Preview not loading on your device? <a href="RESUME.pdf" target="_blank" rel="noopener">Open the PDF in a new tab</a>.</p>
 </body>
 </html>
