@@ -70,21 +70,6 @@
     </div>
 
     <!-- Embed the PDF full screen with toolbar disabled to prevent casual downloading/printing -->
-    <iframe src="RESUME.pdf#toolbar=0&navpanes=0" class="resume-content" title="Resume PDF"></iframe>
-
-    <script>
-        // Disable Right-Click
-        document.addEventListener('contextmenu', event => event.preventDefault());
-
-        // Disable Keyboard Shortcuts (Ctrl+S, Ctrl+P, Ctrl+U)
-        document.addEventListener('keydown', function(e) {
-            if (e.ctrlKey || e.metaKey) {
-                if (e.key === 's' || e.key === 'p' || e.key === 'u' || e.key === 'c') {
-                    e.preventDefault();
-                    console.log("Shortcut disabled for security.");
-                }
-            }
-        });
-    </script>
+    <iframe src="RESUME.pdf" class="resume-content" title="Resume PDF"></iframe>
 </body>
 </html>
