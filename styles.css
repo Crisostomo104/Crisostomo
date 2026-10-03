@@ -251,8 +251,8 @@ h2 { font-size: clamp(1.75rem, 3.6vw, 2.5rem); font-weight: 800; }
     background: rgba(255, 255, 255, .92); border-radius: 12px; box-shadow: var(--shadow-md);
     -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
 }
-.portrait strong { font: 700 .98rem/1.2 var(--font-head); color: var(--ink); }
-.portrait figcaption span { font-size: .84rem; color: var(--muted); }
+.portrait strong { font: 700 .98rem/1.2 var(--font-head); color: #0b1220; }
+.portrait figcaption span { font-size: .84rem; color: #5b6678; }
 
 .stats {
     display: grid; grid-template-columns: repeat(3, 1fr);
