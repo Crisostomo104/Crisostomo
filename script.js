@@ -1,4 +1,32 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeLabel = themeToggle ? themeToggle.querySelector('.theme-text') : null;
+    const themeStorageKey = 'portfolio-theme';
+
+    const applyTheme = theme => {
+        root.setAttribute('data-theme', theme);
+        if (themeToggle) {
+            const isDark = theme === 'dark';
+            themeToggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            if (themeLabel) themeLabel.textContent = isDark ? 'Light' : 'Dark';
+        }
+    };
+
+    try {
+        const savedTheme = localStorage.getItem(themeStorageKey);
+        const preferredTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        applyTheme(savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : preferredTheme);
+    } catch {
+        applyTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    }
+
+    themeToggle?.addEventListener('click', () => {
+        const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        applyTheme(nextTheme);
+        try { localStorage.setItem(themeStorageKey, nextTheme); } catch {}
+    });
+
     const header = document.getElementById('siteHeader');
     const toggle = document.getElementById('navToggle');
     const nav = document.getElementById('primaryNav');
@@ -76,58 +104,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     stripUrl();
 
-
-    /* ---------- Theme toggle (light / dark) ---------- */
-    const root = document.documentElement;
-    const themeBtn = document.getElementById('themeToggle');
-    const themeMeta = document.querySelector('meta[name="theme-color"]');
-    const isDark = () => root.getAttribute('data-theme') === 'dark';
-    const syncTheme = () => {
-        const dark = isDark();
-        if (themeBtn) {
-            themeBtn.setAttribute('aria-label', dark ? 'Switch to light mode' : 'Switch to dark mode');
-            themeBtn.title = dark ? 'Switch to light mode' : 'Switch to dark mode';
-        }
-        if (themeMeta) themeMeta.setAttribute('content', dark ? '#0a0f19' : '#ffffff');
-    };
-    syncTheme();
-    if (themeBtn) {
-        themeBtn.addEventListener('click', () => {
-            root.setAttribute('data-theme', isDark() ? 'light' : 'dark');
-            try { localStorage.setItem('theme', root.getAttribute('data-theme')); } catch (_) {}
-            syncTheme();
-        });
-    }
-    // Follow the device setting live, but only until the visitor picks a theme themselves
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-        let saved = null;
-        try { saved = localStorage.getItem('theme'); } catch (_) {}
-        if (saved !== 'light' && saved !== 'dark') {
-            root.setAttribute('data-theme', e.matches ? 'dark' : 'light');
-            syncTheme();
-        }
-    });
-
-    /* ---------- FAQ: only one answer open at a time ---------- */
-    const faqItems = [...document.querySelectorAll('.faq details')];
-    faqItems.forEach(item => {
-        item.addEventListener('toggle', () => {
-            if (!item.open) return;
-            faqItems.forEach(other => { if (other !== item) other.open = false; });
-        });
-    });
-
     /* ---------- Contact form (Web3Forms) ---------- */
     const form = document.getElementById('contactForm');
     const toast = (icon, title, text) => {
         if (window.Swal) {
-            const dark = document.documentElement.getAttribute('data-theme') === 'dark';
-            return Swal.fire({
-                icon, title, text,
-                confirmButtonColor: dark ? '#2f62e6' : '#1e4fd8',
-                background: dark ? '#111827' : '#ffffff',
-                color: dark ? '#f1f5fb' : '#0b1220'
-            });
+            return Swal.fire({ icon, title, text, confirmButtonColor: '#1e4fd8' });
         }
         alert(title + '\n' + text); // fallback if the CDN script is blocked
     };
