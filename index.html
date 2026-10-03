@@ -16,6 +16,17 @@
     </script>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%231e4fd8%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
     <script>document.documentElement.classList.add('js');</script>
+    <script>
+    /* Apply saved or system theme before first paint (prevents a white flash) */
+    (function () {
+        var t = null;
+        try { t = localStorage.getItem('theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+            t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
@@ -27,6 +38,8 @@
 <!-- Icon sprite (no external icon library needed) -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
     <defs>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
         <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
         <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
         <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
@@ -58,10 +71,6 @@
             <span class="brand-mark">JLC</span>
             <span class="brand-text">John Lodie <b>Crisostomo</b></span>
         </a>
-        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-            <svg class="i i-open" aria-hidden="true"><use href="#i-menu"/></svg>
-            <svg class="i i-close" aria-hidden="true"><use href="#i-x"/></svg>
-        </button>
         <nav class="primary-nav" id="primaryNav" aria-label="Primary">
             <ul>
                 <li><a href="#services">Services</a></li>
@@ -72,6 +81,16 @@
                 <li class="nav-cta-item"><a href="#contact" class="btn btn-primary btn-sm">Hire Me</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" title="Toggle dark mode">
+                <svg class="i i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+                <svg class="i i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+            </button>
+            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+                <svg class="i i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+                <svg class="i i-close" aria-hidden="true"><use href="#i-x"/></svg>
+            </button>
+        </div>
     </div>
 </header>
 
@@ -97,7 +116,7 @@
                 </ul>
             </div>
             <figure class="portrait">
-                <img src="/images/meeee.jpg" alt="Portrait of John Lodie Crisostomo" width="900" height="900" fetchpriority="high">
+                <img src="images/portrait.webp" alt="Portrait of John Lodie Crisostomo" width="900" height="900" fetchpriority="high">
                 <figcaption>
                     <strong>John Lodie Crisostomo</strong>
                     <span>Web Developer · Santa Rosa, Laguna</span>
@@ -159,7 +178,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="images/p1.png" alt="Barangay Inquiry System landing page" width="1200" height="591" loading="lazy">
+                        <img src="images/p1.webp" alt="Barangay Inquiry System landing page" width="1200" height="591" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">01 · Local government</p>
@@ -179,7 +198,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="/images/p6.png" alt="SAHMS daily time record dashboard" width="1200" height="598" loading="lazy">
+                        <img src="images/p6.webp" alt="SAHMS daily time record dashboard" width="1200" height="598" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">02 · School operations</p>
@@ -199,7 +218,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="/images/p2.png" alt="Event tabulation system judge login screen" width="1200" height="591" loading="lazy">
+                        <img src="images/p2.webp" alt="Event tabulation system judge login screen" width="1200" height="591" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">03 · Events &amp; pageants</p>
@@ -218,7 +237,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="/images/p4.jpeg" alt="Client blog homepage" width="1200" height="591" loading="lazy">
+                        <img src="images/p4.webp" alt="Client blog homepage" width="1200" height="591" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">04 · Small business &amp; content</p>
