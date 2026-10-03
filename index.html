@@ -29,8 +29,6 @@
     <defs>
         <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
         <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
-        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></symbol>
-        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M21 12.8A8.8 8.8 0 0 1 11.2 3a8.8 8.8 0 1 0 9.8 9.8z"/></symbol>
         <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
         <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
         <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
@@ -60,17 +58,10 @@
             <span class="brand-mark">JLC</span>
             <span class="brand-text">John Lodie <b>Crisostomo</b></span>
         </a>
-        <div class="header-actions">
-            <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode">
-                <svg class="i icon-sun" aria-hidden="true"><use href="#i-sun"/></svg>
-                <svg class="i icon-moon" aria-hidden="true"><use href="#i-moon"/></svg>
-                <span class="theme-text">Dark</span>
-            </button>
-            <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
-                <svg class="i i-open" aria-hidden="true"><use href="#i-menu"/></svg>
-                <svg class="i i-close" aria-hidden="true"><use href="#i-x"/></svg>
-            </button>
-        </div>
+        <button class="nav-toggle" id="navToggle" type="button" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+            <svg class="i i-open" aria-hidden="true"><use href="#i-menu"/></svg>
+            <svg class="i i-close" aria-hidden="true"><use href="#i-x"/></svg>
+        </button>
         <nav class="primary-nav" id="primaryNav" aria-label="Primary">
             <ul>
                 <li><a href="#services">Services</a></li>
@@ -106,7 +97,7 @@
                 </ul>
             </div>
             <figure class="portrait">
-                <img src="/images/meeee.jpg" alt="Portrait of John Lodie Crisostomo" width="900" height="900" fetchpriority="high">
+                <img src="images/portrait.webp" alt="Portrait of John Lodie Crisostomo" width="900" height="900" fetchpriority="high">
                 <figcaption>
                     <strong>John Lodie Crisostomo</strong>
                     <span>Web Developer · Santa Rosa, Laguna</span>
@@ -168,7 +159,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="images/p1.png" alt="Barangay Inquiry System landing page" width="1200" height="591" loading="lazy">
+                        <img src="images/p1.webp" alt="Barangay Inquiry System landing page" width="1200" height="591" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">01 · Local government</p>
@@ -188,7 +179,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="/images/p6.png" alt="SAHMS daily time record dashboard" width="1200" height="598" loading="lazy">
+                        <img src="images/p6.webp" alt="SAHMS daily time record dashboard" width="1200" height="598" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">02 · School operations</p>
@@ -208,7 +199,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="/images/p2.png" alt="Event tabulation system judge login screen" width="1200" height="591" loading="lazy">
+                        <img src="images/p2.webp" alt="Event tabulation system judge login screen" width="1200" height="591" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">03 · Events &amp; pageants</p>
@@ -227,7 +218,7 @@
                 <article class="case reveal">
                     <div class="frame">
                         <div class="frame-bar" aria-hidden="true"><i></i><i></i><i></i></div>
-                        <img src="/images/p4.jpeg" alt="Client blog homepage" width="1200" height="591" loading="lazy">
+                        <img src="images/p4.webp" alt="Client blog homepage" width="1200" height="591" loading="lazy">
                     </div>
                     <div class="case-body">
                         <p class="case-meta">04 · Small business &amp; content</p>
