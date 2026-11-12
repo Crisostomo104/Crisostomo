@@ -1,0 +1,42 @@
+/* Upgrade styles: new sections, built on the variables in styles.css */
+.skip{position:absolute;left:-999px;top:0;background:var(--accent-1);color:#fff;padding:.5rem 1rem;z-index:2000}
+.skip:focus{left:0}
+:focus-visible{outline:2px solid var(--accent-3);outline-offset:3px}
+
+.badge{display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .9rem;border:1px solid var(--border-color);border-radius:999px;font-size:.85rem;color:var(--text-muted);margin-bottom:1.2rem}
+.badge .dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 4px rgba(34,197,94,.2)}
+.hero .name{font-size:clamp(2rem,5vw,3.4rem)}
+.trust{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem 1.8rem;margin-top:2rem;color:var(--text-muted);font-size:.9rem}
+.trust strong{color:var(--text-main)}
+
+.nav-links a.nav-cta{background:linear-gradient(135deg,var(--accent-1),var(--accent-2));color:#fff;padding:.5rem 1.1rem;border-radius:8px}
+
+.grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.5rem}
+.card{background:var(--bg-secondary);border:1px solid var(--border-color);border-radius:14px;padding:1.75rem;transition:var(--transition)}
+.card:hover{transform:translateY(-4px);border-color:var(--accent-1)}
+.card i{font-size:1.6rem;color:var(--accent-1);margin-bottom:1rem}
+.card h3{margin-bottom:.6rem}
+.card p,.steps p,.faq p{color:var(--text-muted);font-size:.95rem}
+
+.cs{font-size:.92rem;color:var(--text-muted);margin-bottom:.5rem}
+.cs b{color:var(--text-main)}
+
+.steps{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+.steps li{border-left:2px solid var(--accent-1);padding-left:1.2rem}
+.steps span{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--accent-1);font-weight:700;margin-bottom:.7rem}
+
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.2rem}
+.chips span{padding:.3rem .8rem;border:1px solid var(--border-color);border-radius:999px;font-size:.85rem;color:var(--text-muted)}
+
+.faq{max-width:760px}
+.faq details{border:1px solid var(--border-color);border-radius:10px;padding:1rem 1.25rem;margin-bottom:.8rem;background:var(--bg-secondary)}
+.faq summary{cursor:pointer;font-weight:600}
+.faq details p{margin-top:.7rem}
+
+.contact-info p{margin-bottom:.8rem}
+.contact-info i{color:var(--accent-1);margin-right:.5rem}
+.contact-info a{color:var(--text-main)}
+select.form-control{appearance:none;cursor:pointer}
+select.form-control option{background:var(--bg-secondary)}
+
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Resume | John Lodie Crisostomo</title>
+    <meta name="theme-color" content="#ffd23f">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2212%22 fill=%22%23ef233c%22/><text x=%2250%22 y=%2265%22 font-family=%22Arial%22 font-size=%2238%22 font-weight=%22bold%22 fill=%22white%22 text-anchor=%22middle%22>JLC</text></svg>">
+    <script>
+    /* Apply saved or system theme before first paint (prevents a white flash) */
+    (function () {
+        var t = null;
+        try { t = localStorage.getItem('portfolio-theme'); } catch (e) {}
+        if (t !== 'light' && t !== 'dark') {
+            t = window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+    })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,400..800&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="resume-page">
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <defs>
+            <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></symbol>
+            <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></symbol>
+            <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4 10 14M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+        </defs>
+    </svg>
+
+    <header class="resume-bar">
+        <a href="index.html" class="btn btn-secondary btn-sm"><svg class="i" aria-hidden="true"><use href="#i-arrow-left"/></svg> Back to Portfolio</a>
+        <h1>Resume</h1>
+        <a href="RESUME.pdf" download class="btn btn-primary btn-sm"><svg class="i" aria-hidden="true"><use href="#i-download"/></svg> Download PDF</a>
+    </header>
+
+    <iframe src="RESUME.pdf" class="resume-frame" title="Resume of John Lodie Crisostomo (PDF)"></iframe>
+
+    <p class="resume-fallback">Preview not loading on your device? <a href="RESUME.pdf" target="_blank" rel="noopener">Open the PDF in a new tab</a>.</p>
+</body>
+</html>
