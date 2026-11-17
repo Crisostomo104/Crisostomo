@@ -57,7 +57,16 @@ html {
     scroll-behavior: smooth;
     scroll-padding-top: calc(var(--header-h) + 12px);
     -webkit-text-size-adjust: 100%;
+    scrollbar-width: thin;
+    scrollbar-color: transparent transparent;
 }
+html.is-scrolling { scrollbar-color: rgba(20, 17, 31, .45) transparent; }
+html[data-theme="dark"].is-scrolling { scrollbar-color: rgba(255, 242, 207, .55) transparent; }
+html::-webkit-scrollbar { width: 10px; height: 10px; }
+html::-webkit-scrollbar-track { background: transparent; }
+html::-webkit-scrollbar-thumb { background: transparent; border: 2px solid transparent; border-radius: 999px; background-clip: padding-box; }
+html.is-scrolling::-webkit-scrollbar-thumb { background-color: rgba(20, 17, 31, .45); }
+html[data-theme="dark"].is-scrolling::-webkit-scrollbar-thumb { background-color: rgba(255, 242, 207, .55); }
 
 body {
     font-family: var(--font-display);

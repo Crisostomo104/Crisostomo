@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let ticking = false;
     const progressBar = document.getElementById('progressBar');
     const progressTrack = progressBar ? progressBar.parentElement : null;
-    let progressHideTimer;
+    let scrollIdleTimer;
     const onScroll = () => {
         header.classList.toggle('scrolled', window.scrollY > 8);
         if (progressBar) {
@@ -51,11 +51,15 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = false;
     };
     window.addEventListener('scroll', () => {
+        root.classList.add('is-scrolling');
         if (progressTrack) {
             progressTrack.classList.add('is-visible');
-            window.clearTimeout(progressHideTimer);
-            progressHideTimer = window.setTimeout(() => progressTrack.classList.remove('is-visible'), 800);
         }
+        window.clearTimeout(scrollIdleTimer);
+        scrollIdleTimer = window.setTimeout(() => {
+            root.classList.remove('is-scrolling');
+            if (progressTrack) progressTrack.classList.remove('is-visible');
+        }, 800);
         if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
     }, { passive: true });
     onScroll();
