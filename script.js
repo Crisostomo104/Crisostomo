@@ -36,6 +36,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ---------- Header shadow + active link (throttled with rAF) ---------- */
     let ticking = false;
     const progressBar = document.getElementById('progressBar');
+    const progressTrack = progressBar ? progressBar.parentElement : null;
+    let progressHideTimer;
     const onScroll = () => {
         header.classList.toggle('scrolled', window.scrollY > 8);
         if (progressBar) {
@@ -49,6 +51,11 @@ document.addEventListener('DOMContentLoaded', () => {
         ticking = false;
     };
     window.addEventListener('scroll', () => {
+        if (progressTrack) {
+            progressTrack.classList.add('is-visible');
+            window.clearTimeout(progressHideTimer);
+            progressHideTimer = window.setTimeout(() => progressTrack.classList.remove('is-visible'), 800);
+        }
         if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
     }, { passive: true });
     onScroll();
@@ -68,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.key === 'Escape' && nav.classList.contains('open')) { setMenu(false); toggle.focus(); }
     });
     // Reset if the viewport is resized up to desktop while the menu is open
-    window.matchMedia('(min-width: 821px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
+    window.matchMedia('(min-width: 961px)').addEventListener('change', e => { if (e.matches) setMenu(false); });
 
     /* ---------- Queue sign: the number rolls up to 001 once on load ---------- */
     const serving = document.getElementById('nowServing');
