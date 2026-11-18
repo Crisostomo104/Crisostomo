@@ -1,5 +1,12 @@
 document.addEventListener('DOMContentLoaded', () => {
     const root = document.documentElement;
+    const activityChart = document.querySelector('.activity-chart img');
+    if (activityChart) {
+        const chartUrl = new URL(activityChart.src);
+        chartUrl.searchParams.set('refresh', Date.now().toString());
+        activityChart.src = chartUrl.toString();
+    }
+
     const themeToggle = document.getElementById('themeToggle');
     const themeLabel = themeToggle ? themeToggle.querySelector('.theme-text') : null;
     const themeStorageKey = 'portfolio-theme';
