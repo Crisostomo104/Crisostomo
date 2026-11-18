@@ -5,6 +5,26 @@ document.addEventListener('DOMContentLoaded', () => {
         const chartUrl = new URL(activityChart.src);
         chartUrl.searchParams.set('refresh', Date.now().toString());
         activityChart.src = chartUrl.toString();
+
+        const activityNote = document.getElementById('activityNote');
+        fetch('/api/contributions', { cache: 'no-store' })
+            .then(async response => {
+                if (response.status === 503) {
+                    activityNote.textContent = 'Showing public contributions only. Configure GITHUB_TOKEN in Vercel to include private contribution counts.';
+                    return;
+                }
+                if (!response.ok) throw new Error(`Contribution endpoint returned ${response.status}`);
+
+                const svg = await response.text();
+                if (!svg.trimStart().startsWith('<svg')) throw new Error('Contribution endpoint returned invalid SVG');
+
+                activityChart.src = URL.createObjectURL(new Blob([svg], { type: 'image/svg+xml' }));
+                activityNote.textContent = 'Includes private contribution counts; private repository details remain hidden.';
+            })
+            .catch(error => {
+                console.error('Unable to load combined GitHub contribution activity.', error);
+                activityNote.textContent = 'Unable to load combined activity. Showing public contributions only.';
+            });
     }
 
     const themeToggle = document.getElementById('themeToggle');
